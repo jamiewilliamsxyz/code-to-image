@@ -30,6 +30,9 @@ export const App = () => {
 
   return (
     <>
+      <p style={{ color: "white" }}>
+        Work in progress: languages selection coming soon
+      </p>
       <ThemeDropdown theme={theme} setTheme={setTheme} />
       <CodeBlock codeRef={codeRef} theme={themes[theme]} />
       <DownloadButton onDownload={handleDownload} />
