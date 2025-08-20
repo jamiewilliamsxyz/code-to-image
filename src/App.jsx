@@ -26,6 +26,9 @@ export const App = () => {
 
   return (
     <>
+      <p style={{ color: "white" }}>
+        Work In Progress: Will add themes & more languages
+      </p>
       <CodeBlock codeRef={codeRef} />
       <DownloadButton onDownload={handleDownload} />
     </>
