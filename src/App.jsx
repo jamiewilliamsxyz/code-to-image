@@ -13,7 +13,7 @@ export const App = () => {
     try {
       const dataUrl = await toPng(codeRef.current, {
         cacheBust: true,
-        skipAutoScale: true,
+        fontEmbedCSS: "",
       });
       const link = document.createElement("a");
       link.download = "code-block.png";
