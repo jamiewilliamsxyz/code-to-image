@@ -1,11 +1,13 @@
 import "./App.css";
 import { CodeBlock } from "./components/CodeBlock";
+import { DownloadButton } from "./components/DownloadButton";
 
 export const App = () => {
   return (
-    <div>
+    <>
       <CodeBlock />
-    </div>
+      <DownloadButton />
+    </>
   );
 };
 
