@@ -1,3 +1,9 @@
+import "./DownloadButton.css";
+
 export const DownloadButton = ({ onDownload }) => {
-  return <button onClick={onDownload}>Download</button>;
+  return (
+    <button onClick={onDownload} className="download-btn">
+      Download
+    </button>
+  );
 };
