@@ -1,3 +1,3 @@
-export const DownloadButton = () => {
-  return <button>Download</button>;
+export const DownloadButton = ({ onDownload }) => {
+  return <button onClick={onDownload}>Download</button>;
 };
