@@ -1,10 +1,14 @@
 import "./App.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { toPng } from "html-to-image";
 import { CodeBlock } from "./components/CodeBlock";
 import { DownloadButton } from "./components/DownloadButton";
+import { ThemeDropdown } from "./components/ThemeDropdown";
+import { themes } from "./themes";
 
 export const App = () => {
+  const [theme, setTheme] = useState("githubLight");
+
   const codeRef = useRef(null);
 
   const handleDownload = async () => {
@@ -26,10 +30,8 @@ export const App = () => {
 
   return (
     <>
-      <p style={{ color: "white" }}>
-        Work In Progress: Will add themes & more languages
-      </p>
-      <CodeBlock codeRef={codeRef} />
+      <ThemeDropdown theme={theme} setTheme={setTheme} />
+      <CodeBlock codeRef={codeRef} theme={themes[theme]} />
       <DownloadButton onDownload={handleDownload} />
     </>
   );

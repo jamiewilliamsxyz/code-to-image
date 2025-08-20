@@ -1,0 +1,20 @@
+select {
+  padding: 5px 10px;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Fira Code", monospace;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+label {
+  color: white;
+  font-weight: 600;
+}
