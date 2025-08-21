@@ -1,14 +1,36 @@
 import "./CodeBlock.css";
 import CodeMirror from "@uiw/react-codemirror";
-import { javascript } from "@codemirror/lang-javascript";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { languages } from "../languages";
 
-const extensions = [javascript({ jsx: true })];
-
-export const CodeBlock = ({ codeRef, theme }) => {
+export const CodeBlock = ({ codeRef, theme, language }) => {
   const [code, setCode] = useState(
     "console.log('hello world!');\n\nfunction greet() {\n  return '👋';\n}"
   );
+
+  const [extensions, setExtensions] = useState([]);
+
+  useEffect(() => {
+    const loadLanguageExtensions = async () => {
+      if (languages[language]) {
+        try {
+          const ext = await languages[language]();
+          if (ext) {
+            setExtensions([ext]);
+          } else {
+            setExtensions([]);
+          }
+        } catch (error) {
+          console.error(`Failed to load language ${language}:`, error);
+          setExtensions([]);
+        }
+      } else {
+        setExtensions([]);
+      }
+    };
+
+    loadLanguageExtensions();
+  }, [language]);
 
   return (
     <div ref={codeRef} className="code">

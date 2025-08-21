@@ -4,10 +4,12 @@ import { toPng } from "html-to-image";
 import { CodeBlock } from "./components/CodeBlock";
 import { DownloadButton } from "./components/DownloadButton";
 import { ThemeDropdown } from "./components/ThemeDropdown";
+import { LanguageDropdown } from "./components/LanguageDropdown";
 import { themes } from "./themes";
 
 export const App = () => {
   const [theme, setTheme] = useState("githubLight");
+  const [language, setLanguage] = useState("javascript");
 
   const codeRef = useRef(null);
 
@@ -30,11 +32,12 @@ export const App = () => {
 
   return (
     <>
-      <p style={{ color: "white" }}>
-        Work in progress: languages selection coming soon
-      </p>
-      <ThemeDropdown theme={theme} setTheme={setTheme} />
-      <CodeBlock codeRef={codeRef} theme={themes[theme]} />
+      <h1>Code to Image</h1>
+      <div className="dropdown-container">
+        <ThemeDropdown theme={theme} setTheme={setTheme} />
+        <LanguageDropdown language={language} setLanguage={setLanguage} />
+      </div>
+      <CodeBlock codeRef={codeRef} theme={themes[theme]} language={language} />
       <DownloadButton onDownload={handleDownload} />
     </>
   );
